@@ -1655,6 +1655,21 @@ export namespace google {
 
                     namespace Input {
 
+                        /** Type enum. */
+                        enum Type {
+                            TYPE_UNSPECIFIED = 0,
+                            RTMP_PUSH = 1,
+                            SRT_PUSH = 2
+                        }
+
+                        /** Tier enum. */
+                        enum Tier {
+                            TIER_UNSPECIFIED = 0,
+                            SD = 1,
+                            HD = 2,
+                            UHD = 3
+                        }
+
                         /** Properties of a SecurityRule. */
                         interface ISecurityRule {
 
@@ -1744,21 +1759,6 @@ export namespace google {
                              */
                             public toJSON(): { [k: string]: any };
                         }
-
-                        /** Type enum. */
-                        enum Type {
-                            TYPE_UNSPECIFIED = 0,
-                            RTMP_PUSH = 1,
-                            SRT_PUSH = 2
-                        }
-
-                        /** Tier enum. */
-                        enum Tier {
-                            TIER_UNSPECIFIED = 0,
-                            SD = 1,
-                            HD = 2,
-                            UHD = 3
-                        }
                     }
 
                     /** Properties of a Channel. */
@@ -1802,6 +1802,9 @@ export namespace google {
 
                         /** Channel streamingError */
                         streamingError?: (google.rpc.IStatus|null);
+
+                        /** Channel logConfig */
+                        logConfig?: (google.cloud.video.livestream.v1.ILogConfig|null);
                     }
 
                     /** Represents a Channel. */
@@ -1851,6 +1854,9 @@ export namespace google {
 
                         /** Channel streamingError. */
                         public streamingError?: (google.rpc.IStatus|null);
+
+                        /** Channel logConfig. */
+                        public logConfig?: (google.cloud.video.livestream.v1.ILogConfig|null);
 
                         /**
                          * Creates a new Channel instance using the specified properties.
@@ -2025,6 +2031,109 @@ export namespace google {
                             STOPPED = 6,
                             STARTING = 7,
                             STOPPING = 8
+                        }
+                    }
+
+                    /** Properties of a LogConfig. */
+                    interface ILogConfig {
+
+                        /** LogConfig logSeverity */
+                        logSeverity?: (google.cloud.video.livestream.v1.LogConfig.LogSeverity|keyof typeof google.cloud.video.livestream.v1.LogConfig.LogSeverity|null);
+                    }
+
+                    /** Represents a LogConfig. */
+                    class LogConfig implements ILogConfig {
+
+                        /**
+                         * Constructs a new LogConfig.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: google.cloud.video.livestream.v1.ILogConfig);
+
+                        /** LogConfig logSeverity. */
+                        public logSeverity: (google.cloud.video.livestream.v1.LogConfig.LogSeverity|keyof typeof google.cloud.video.livestream.v1.LogConfig.LogSeverity);
+
+                        /**
+                         * Creates a new LogConfig instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns LogConfig instance
+                         */
+                        public static create(properties?: google.cloud.video.livestream.v1.ILogConfig): google.cloud.video.livestream.v1.LogConfig;
+
+                        /**
+                         * Encodes the specified LogConfig message. Does not implicitly {@link google.cloud.video.livestream.v1.LogConfig.verify|verify} messages.
+                         * @param message LogConfig message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: google.cloud.video.livestream.v1.ILogConfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified LogConfig message, length delimited. Does not implicitly {@link google.cloud.video.livestream.v1.LogConfig.verify|verify} messages.
+                         * @param message LogConfig message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: google.cloud.video.livestream.v1.ILogConfig, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a LogConfig message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns LogConfig
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.video.livestream.v1.LogConfig;
+
+                        /**
+                         * Decodes a LogConfig message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns LogConfig
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.video.livestream.v1.LogConfig;
+
+                        /**
+                         * Verifies a LogConfig message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a LogConfig message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns LogConfig
+                         */
+                        public static fromObject(object: { [k: string]: any }): google.cloud.video.livestream.v1.LogConfig;
+
+                        /**
+                         * Creates a plain object from a LogConfig message. Also converts values to other types if specified.
+                         * @param message LogConfig
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: google.cloud.video.livestream.v1.LogConfig, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this LogConfig to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+                    }
+
+                    namespace LogConfig {
+
+                        /** LogSeverity enum. */
+                        enum LogSeverity {
+                            LOG_SEVERITY_UNSPECIFIED = 0,
+                            OFF = 1,
+                            DEBUG = 100,
+                            INFO = 200,
+                            WARNING = 400,
+                            ERROR = 500
                         }
                     }
 
@@ -3753,6 +3862,9 @@ export namespace google {
 
                         /** DeleteChannelRequest requestId */
                         requestId?: (string|null);
+
+                        /** DeleteChannelRequest force */
+                        force?: (boolean|null);
                     }
 
                     /** Represents a DeleteChannelRequest. */
@@ -3769,6 +3881,9 @@ export namespace google {
 
                         /** DeleteChannelRequest requestId. */
                         public requestId: string;
+
+                        /** DeleteChannelRequest force. */
+                        public force: boolean;
 
                         /**
                          * Creates a new DeleteChannelRequest instance using the specified properties.
@@ -5468,18 +5583,6 @@ export namespace google {
     /** Namespace api. */
     namespace api {
 
-        /** FieldBehavior enum. */
-        enum FieldBehavior {
-            FIELD_BEHAVIOR_UNSPECIFIED = 0,
-            OPTIONAL = 1,
-            REQUIRED = 2,
-            OUTPUT_ONLY = 3,
-            INPUT_ONLY = 4,
-            IMMUTABLE = 5,
-            UNORDERED_LIST = 6,
-            NON_EMPTY_DEFAULT = 7
-        }
-
         /** Properties of a Http. */
         interface IHttp {
 
@@ -5817,6 +5920,18 @@ export namespace google {
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
+        }
+
+        /** FieldBehavior enum. */
+        enum FieldBehavior {
+            FIELD_BEHAVIOR_UNSPECIFIED = 0,
+            OPTIONAL = 1,
+            REQUIRED = 2,
+            OUTPUT_ONLY = 3,
+            INPUT_ONLY = 4,
+            IMMUTABLE = 5,
+            UNORDERED_LIST = 6,
+            NON_EMPTY_DEFAULT = 7
         }
 
         /** Properties of a ResourceDescriptor. */

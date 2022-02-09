@@ -10,10 +10,13 @@
                   "nested": {
                     "v1": {
                       "options": {
+                        "csharp_namespace": "Google.Cloud.Video.LiveStream.V1",
                         "go_package": "google.golang.org/genproto/googleapis/cloud/video/livestream/v1;livestream",
                         "java_multiple_files": true,
                         "java_outer_classname": "ServiceProto",
-                        "java_package": "com.google.cloud.video.livestream.v1"
+                        "java_package": "com.google.cloud.video.livestream.v1",
+                        "php_namespace": "Google\\Cloud\\Video\\LiveStream\\V1",
+                        "ruby_package": "Google::Cloud::Video::LiveStream::V1"
                       },
                       "nested": {
                         "ElementaryStream": {
@@ -451,15 +454,6 @@
                             }
                           },
                           "nested": {
-                            "SecurityRule": {
-                              "fields": {
-                                "ipRanges": {
-                                  "rule": "repeated",
-                                  "type": "string",
-                                  "id": 1
-                                }
-                              }
-                            },
                             "Type": {
                               "values": {
                                 "TYPE_UNSPECIFIED": 0,
@@ -473,6 +467,15 @@
                                 "SD": 1,
                                 "HD": 2,
                                 "UHD": 3
+                              }
+                            },
+                            "SecurityRule": {
+                              "fields": {
+                                "ipRanges": {
+                                  "rule": "repeated",
+                                  "type": "string",
+                                  "id": 1
+                                }
                               }
                             }
                           }
@@ -558,6 +561,10 @@
                               "options": {
                                 "(google.api.field_behavior)": "OUTPUT_ONLY"
                               }
+                            },
+                            "logConfig": {
+                              "type": "LogConfig",
+                              "id": 19
                             }
                           },
                           "nested": {
@@ -579,6 +586,26 @@
                                 "STOPPED": 6,
                                 "STARTING": 7,
                                 "STOPPING": 8
+                              }
+                            }
+                          }
+                        },
+                        "LogConfig": {
+                          "fields": {
+                            "logSeverity": {
+                              "type": "LogSeverity",
+                              "id": 1
+                            }
+                          },
+                          "nested": {
+                            "LogSeverity": {
+                              "values": {
+                                "LOG_SEVERITY_UNSPECIFIED": 0,
+                                "OFF": 1,
+                                "DEBUG": 100,
+                                "INFO": 200,
+                                "WARNING": 400,
+                                "ERROR": 500
                               }
                             }
                           }
@@ -1254,6 +1281,10 @@
                             "requestId": {
                               "type": "string",
                               "id": 2
+                            },
+                            "force": {
+                              "type": "bool",
+                              "id": 3
                             }
                           }
                         },
@@ -1602,24 +1633,6 @@
             "cc_enable_arenas": true
           },
           "nested": {
-            "fieldBehavior": {
-              "rule": "repeated",
-              "type": "google.api.FieldBehavior",
-              "id": 1052,
-              "extend": "google.protobuf.FieldOptions"
-            },
-            "FieldBehavior": {
-              "values": {
-                "FIELD_BEHAVIOR_UNSPECIFIED": 0,
-                "OPTIONAL": 1,
-                "REQUIRED": 2,
-                "OUTPUT_ONLY": 3,
-                "INPUT_ONLY": 4,
-                "IMMUTABLE": 5,
-                "UNORDERED_LIST": 6,
-                "NON_EMPTY_DEFAULT": 7
-              }
-            },
             "http": {
               "type": "HttpRule",
               "id": 72295728,
@@ -1705,6 +1718,24 @@
                   "type": "string",
                   "id": 2
                 }
+              }
+            },
+            "fieldBehavior": {
+              "rule": "repeated",
+              "type": "google.api.FieldBehavior",
+              "id": 1052,
+              "extend": "google.protobuf.FieldOptions"
+            },
+            "FieldBehavior": {
+              "values": {
+                "FIELD_BEHAVIOR_UNSPECIFIED": 0,
+                "OPTIONAL": 1,
+                "REQUIRED": 2,
+                "OUTPUT_ONLY": 3,
+                "INPUT_ONLY": 4,
+                "IMMUTABLE": 5,
+                "UNORDERED_LIST": 6,
+                "NON_EMPTY_DEFAULT": 7
               }
             },
             "resourceReference": {

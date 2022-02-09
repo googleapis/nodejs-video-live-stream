@@ -4275,6 +4275,40 @@
                                 return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
                             };
     
+                            /**
+                             * Type enum.
+                             * @name google.cloud.video.livestream.v1.Input.Type
+                             * @enum {number}
+                             * @property {number} TYPE_UNSPECIFIED=0 TYPE_UNSPECIFIED value
+                             * @property {number} RTMP_PUSH=1 RTMP_PUSH value
+                             * @property {number} SRT_PUSH=2 SRT_PUSH value
+                             */
+                            Input.Type = (function() {
+                                var valuesById = {}, values = Object.create(valuesById);
+                                values[valuesById[0] = "TYPE_UNSPECIFIED"] = 0;
+                                values[valuesById[1] = "RTMP_PUSH"] = 1;
+                                values[valuesById[2] = "SRT_PUSH"] = 2;
+                                return values;
+                            })();
+    
+                            /**
+                             * Tier enum.
+                             * @name google.cloud.video.livestream.v1.Input.Tier
+                             * @enum {number}
+                             * @property {number} TIER_UNSPECIFIED=0 TIER_UNSPECIFIED value
+                             * @property {number} SD=1 SD value
+                             * @property {number} HD=2 HD value
+                             * @property {number} UHD=3 UHD value
+                             */
+                            Input.Tier = (function() {
+                                var valuesById = {}, values = Object.create(valuesById);
+                                values[valuesById[0] = "TIER_UNSPECIFIED"] = 0;
+                                values[valuesById[1] = "SD"] = 1;
+                                values[valuesById[2] = "HD"] = 2;
+                                values[valuesById[3] = "UHD"] = 3;
+                                return values;
+                            })();
+    
                             Input.SecurityRule = (function() {
     
                                 /**
@@ -4478,40 +4512,6 @@
                                 return SecurityRule;
                             })();
     
-                            /**
-                             * Type enum.
-                             * @name google.cloud.video.livestream.v1.Input.Type
-                             * @enum {number}
-                             * @property {number} TYPE_UNSPECIFIED=0 TYPE_UNSPECIFIED value
-                             * @property {number} RTMP_PUSH=1 RTMP_PUSH value
-                             * @property {number} SRT_PUSH=2 SRT_PUSH value
-                             */
-                            Input.Type = (function() {
-                                var valuesById = {}, values = Object.create(valuesById);
-                                values[valuesById[0] = "TYPE_UNSPECIFIED"] = 0;
-                                values[valuesById[1] = "RTMP_PUSH"] = 1;
-                                values[valuesById[2] = "SRT_PUSH"] = 2;
-                                return values;
-                            })();
-    
-                            /**
-                             * Tier enum.
-                             * @name google.cloud.video.livestream.v1.Input.Tier
-                             * @enum {number}
-                             * @property {number} TIER_UNSPECIFIED=0 TIER_UNSPECIFIED value
-                             * @property {number} SD=1 SD value
-                             * @property {number} HD=2 HD value
-                             * @property {number} UHD=3 UHD value
-                             */
-                            Input.Tier = (function() {
-                                var valuesById = {}, values = Object.create(valuesById);
-                                values[valuesById[0] = "TIER_UNSPECIFIED"] = 0;
-                                values[valuesById[1] = "SD"] = 1;
-                                values[valuesById[2] = "HD"] = 2;
-                                values[valuesById[3] = "UHD"] = 3;
-                                return values;
-                            })();
-    
                             return Input;
                         })();
     
@@ -4534,6 +4534,7 @@
                              * @property {Array.<google.cloud.video.livestream.v1.ISpriteSheet>|null} [spriteSheets] Channel spriteSheets
                              * @property {google.cloud.video.livestream.v1.Channel.StreamingState|null} [streamingState] Channel streamingState
                              * @property {google.rpc.IStatus|null} [streamingError] Channel streamingError
+                             * @property {google.cloud.video.livestream.v1.ILogConfig|null} [logConfig] Channel logConfig
                              */
     
                             /**
@@ -4662,6 +4663,14 @@
                             Channel.prototype.streamingError = null;
     
                             /**
+                             * Channel logConfig.
+                             * @member {google.cloud.video.livestream.v1.ILogConfig|null|undefined} logConfig
+                             * @memberof google.cloud.video.livestream.v1.Channel
+                             * @instance
+                             */
+                            Channel.prototype.logConfig = null;
+    
+                            /**
                              * Creates a new Channel instance using the specified properties.
                              * @function create
                              * @memberof google.cloud.video.livestream.v1.Channel
@@ -4717,6 +4726,8 @@
                                         $root.google.cloud.video.livestream.v1.InputAttachment.encode(message.inputAttachments[i], writer.uint32(/* id 16, wireType 2 =*/130).fork()).ldelim();
                                 if (message.streamingError != null && Object.hasOwnProperty.call(message, "streamingError"))
                                     $root.google.rpc.Status.encode(message.streamingError, writer.uint32(/* id 18, wireType 2 =*/146).fork()).ldelim();
+                                if (message.logConfig != null && Object.hasOwnProperty.call(message, "logConfig"))
+                                    $root.google.cloud.video.livestream.v1.LogConfig.encode(message.logConfig, writer.uint32(/* id 19, wireType 2 =*/154).fork()).ldelim();
                                 return writer;
                             };
     
@@ -4818,6 +4829,9 @@
                                         break;
                                     case 18:
                                         message.streamingError = $root.google.rpc.Status.decode(reader, reader.uint32());
+                                        break;
+                                    case 19:
+                                        message.logConfig = $root.google.cloud.video.livestream.v1.LogConfig.decode(reader, reader.uint32());
                                         break;
                                     default:
                                         reader.skipType(tag & 7);
@@ -4946,6 +4960,11 @@
                                     var error = $root.google.rpc.Status.verify(message.streamingError);
                                     if (error)
                                         return "streamingError." + error;
+                                }
+                                if (message.logConfig != null && message.hasOwnProperty("logConfig")) {
+                                    var error = $root.google.cloud.video.livestream.v1.LogConfig.verify(message.logConfig);
+                                    if (error)
+                                        return "logConfig." + error;
                                 }
                                 return null;
                             };
@@ -5077,6 +5096,11 @@
                                         throw TypeError(".google.cloud.video.livestream.v1.Channel.streamingError: object expected");
                                     message.streamingError = $root.google.rpc.Status.fromObject(object.streamingError);
                                 }
+                                if (object.logConfig != null) {
+                                    if (typeof object.logConfig !== "object")
+                                        throw TypeError(".google.cloud.video.livestream.v1.Channel.logConfig: object expected");
+                                    message.logConfig = $root.google.cloud.video.livestream.v1.LogConfig.fromObject(object.logConfig);
+                                }
                                 return message;
                             };
     
@@ -5110,6 +5134,7 @@
                                     object.output = null;
                                     object.streamingState = options.enums === String ? "STREAMING_STATE_UNSPECIFIED" : 0;
                                     object.streamingError = null;
+                                    object.logConfig = null;
                                 }
                                 if (message.name != null && message.hasOwnProperty("name"))
                                     object.name = message.name;
@@ -5156,6 +5181,8 @@
                                 }
                                 if (message.streamingError != null && message.hasOwnProperty("streamingError"))
                                     object.streamingError = $root.google.rpc.Status.toObject(message.streamingError, options);
+                                if (message.logConfig != null && message.hasOwnProperty("logConfig"))
+                                    object.logConfig = $root.google.cloud.video.livestream.v1.LogConfig.toObject(message.logConfig, options);
                                 return object;
                             };
     
@@ -5384,6 +5411,248 @@
                             })();
     
                             return Channel;
+                        })();
+    
+                        v1.LogConfig = (function() {
+    
+                            /**
+                             * Properties of a LogConfig.
+                             * @memberof google.cloud.video.livestream.v1
+                             * @interface ILogConfig
+                             * @property {google.cloud.video.livestream.v1.LogConfig.LogSeverity|null} [logSeverity] LogConfig logSeverity
+                             */
+    
+                            /**
+                             * Constructs a new LogConfig.
+                             * @memberof google.cloud.video.livestream.v1
+                             * @classdesc Represents a LogConfig.
+                             * @implements ILogConfig
+                             * @constructor
+                             * @param {google.cloud.video.livestream.v1.ILogConfig=} [properties] Properties to set
+                             */
+                            function LogConfig(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * LogConfig logSeverity.
+                             * @member {google.cloud.video.livestream.v1.LogConfig.LogSeverity} logSeverity
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @instance
+                             */
+                            LogConfig.prototype.logSeverity = 0;
+    
+                            /**
+                             * Creates a new LogConfig instance using the specified properties.
+                             * @function create
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @static
+                             * @param {google.cloud.video.livestream.v1.ILogConfig=} [properties] Properties to set
+                             * @returns {google.cloud.video.livestream.v1.LogConfig} LogConfig instance
+                             */
+                            LogConfig.create = function create(properties) {
+                                return new LogConfig(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified LogConfig message. Does not implicitly {@link google.cloud.video.livestream.v1.LogConfig.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @static
+                             * @param {google.cloud.video.livestream.v1.ILogConfig} message LogConfig message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            LogConfig.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.logSeverity != null && Object.hasOwnProperty.call(message, "logSeverity"))
+                                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.logSeverity);
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified LogConfig message, length delimited. Does not implicitly {@link google.cloud.video.livestream.v1.LogConfig.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @static
+                             * @param {google.cloud.video.livestream.v1.ILogConfig} message LogConfig message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            LogConfig.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes a LogConfig message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.cloud.video.livestream.v1.LogConfig} LogConfig
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            LogConfig.decode = function decode(reader, length) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.video.livestream.v1.LogConfig();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    switch (tag >>> 3) {
+                                    case 1:
+                                        message.logSeverity = reader.int32();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes a LogConfig message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.cloud.video.livestream.v1.LogConfig} LogConfig
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            LogConfig.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies a LogConfig message.
+                             * @function verify
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            LogConfig.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                if (message.logSeverity != null && message.hasOwnProperty("logSeverity"))
+                                    switch (message.logSeverity) {
+                                    default:
+                                        return "logSeverity: enum value expected";
+                                    case 0:
+                                    case 1:
+                                    case 100:
+                                    case 200:
+                                    case 400:
+                                    case 500:
+                                        break;
+                                    }
+                                return null;
+                            };
+    
+                            /**
+                             * Creates a LogConfig message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.cloud.video.livestream.v1.LogConfig} LogConfig
+                             */
+                            LogConfig.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.cloud.video.livestream.v1.LogConfig)
+                                    return object;
+                                var message = new $root.google.cloud.video.livestream.v1.LogConfig();
+                                switch (object.logSeverity) {
+                                case "LOG_SEVERITY_UNSPECIFIED":
+                                case 0:
+                                    message.logSeverity = 0;
+                                    break;
+                                case "OFF":
+                                case 1:
+                                    message.logSeverity = 1;
+                                    break;
+                                case "DEBUG":
+                                case 100:
+                                    message.logSeverity = 100;
+                                    break;
+                                case "INFO":
+                                case 200:
+                                    message.logSeverity = 200;
+                                    break;
+                                case "WARNING":
+                                case 400:
+                                    message.logSeverity = 400;
+                                    break;
+                                case "ERROR":
+                                case 500:
+                                    message.logSeverity = 500;
+                                    break;
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from a LogConfig message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @static
+                             * @param {google.cloud.video.livestream.v1.LogConfig} message LogConfig
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            LogConfig.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (options.defaults)
+                                    object.logSeverity = options.enums === String ? "LOG_SEVERITY_UNSPECIFIED" : 0;
+                                if (message.logSeverity != null && message.hasOwnProperty("logSeverity"))
+                                    object.logSeverity = options.enums === String ? $root.google.cloud.video.livestream.v1.LogConfig.LogSeverity[message.logSeverity] : message.logSeverity;
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this LogConfig to JSON.
+                             * @function toJSON
+                             * @memberof google.cloud.video.livestream.v1.LogConfig
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            LogConfig.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            /**
+                             * LogSeverity enum.
+                             * @name google.cloud.video.livestream.v1.LogConfig.LogSeverity
+                             * @enum {number}
+                             * @property {number} LOG_SEVERITY_UNSPECIFIED=0 LOG_SEVERITY_UNSPECIFIED value
+                             * @property {number} OFF=1 OFF value
+                             * @property {number} DEBUG=100 DEBUG value
+                             * @property {number} INFO=200 INFO value
+                             * @property {number} WARNING=400 WARNING value
+                             * @property {number} ERROR=500 ERROR value
+                             */
+                            LogConfig.LogSeverity = (function() {
+                                var valuesById = {}, values = Object.create(valuesById);
+                                values[valuesById[0] = "LOG_SEVERITY_UNSPECIFIED"] = 0;
+                                values[valuesById[1] = "OFF"] = 1;
+                                values[valuesById[100] = "DEBUG"] = 100;
+                                values[valuesById[200] = "INFO"] = 200;
+                                values[valuesById[400] = "WARNING"] = 400;
+                                values[valuesById[500] = "ERROR"] = 500;
+                                return values;
+                            })();
+    
+                            return LogConfig;
                         })();
     
                         v1.InputStreamProperty = (function() {
@@ -9294,6 +9563,7 @@
                              * @interface IDeleteChannelRequest
                              * @property {string|null} [name] DeleteChannelRequest name
                              * @property {string|null} [requestId] DeleteChannelRequest requestId
+                             * @property {boolean|null} [force] DeleteChannelRequest force
                              */
     
                             /**
@@ -9328,6 +9598,14 @@
                             DeleteChannelRequest.prototype.requestId = "";
     
                             /**
+                             * DeleteChannelRequest force.
+                             * @member {boolean} force
+                             * @memberof google.cloud.video.livestream.v1.DeleteChannelRequest
+                             * @instance
+                             */
+                            DeleteChannelRequest.prototype.force = false;
+    
+                            /**
                              * Creates a new DeleteChannelRequest instance using the specified properties.
                              * @function create
                              * @memberof google.cloud.video.livestream.v1.DeleteChannelRequest
@@ -9355,6 +9633,8 @@
                                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
                                 if (message.requestId != null && Object.hasOwnProperty.call(message, "requestId"))
                                     writer.uint32(/* id 2, wireType 2 =*/18).string(message.requestId);
+                                if (message.force != null && Object.hasOwnProperty.call(message, "force"))
+                                    writer.uint32(/* id 3, wireType 0 =*/24).bool(message.force);
                                 return writer;
                             };
     
@@ -9394,6 +9674,9 @@
                                         break;
                                     case 2:
                                         message.requestId = reader.string();
+                                        break;
+                                    case 3:
+                                        message.force = reader.bool();
                                         break;
                                     default:
                                         reader.skipType(tag & 7);
@@ -9436,6 +9719,9 @@
                                 if (message.requestId != null && message.hasOwnProperty("requestId"))
                                     if (!$util.isString(message.requestId))
                                         return "requestId: string expected";
+                                if (message.force != null && message.hasOwnProperty("force"))
+                                    if (typeof message.force !== "boolean")
+                                        return "force: boolean expected";
                                 return null;
                             };
     
@@ -9455,6 +9741,8 @@
                                     message.name = String(object.name);
                                 if (object.requestId != null)
                                     message.requestId = String(object.requestId);
+                                if (object.force != null)
+                                    message.force = Boolean(object.force);
                                 return message;
                             };
     
@@ -9474,11 +9762,14 @@
                                 if (options.defaults) {
                                     object.name = "";
                                     object.requestId = "";
+                                    object.force = false;
                                 }
                                 if (message.name != null && message.hasOwnProperty("name"))
                                     object.name = message.name;
                                 if (message.requestId != null && message.hasOwnProperty("requestId"))
                                     object.requestId = message.requestId;
+                                if (message.force != null && message.hasOwnProperty("force"))
+                                    object.force = message.force;
                                 return object;
                             };
     
@@ -13293,32 +13584,6 @@
              */
             var api = {};
     
-            /**
-             * FieldBehavior enum.
-             * @name google.api.FieldBehavior
-             * @enum {number}
-             * @property {number} FIELD_BEHAVIOR_UNSPECIFIED=0 FIELD_BEHAVIOR_UNSPECIFIED value
-             * @property {number} OPTIONAL=1 OPTIONAL value
-             * @property {number} REQUIRED=2 REQUIRED value
-             * @property {number} OUTPUT_ONLY=3 OUTPUT_ONLY value
-             * @property {number} INPUT_ONLY=4 INPUT_ONLY value
-             * @property {number} IMMUTABLE=5 IMMUTABLE value
-             * @property {number} UNORDERED_LIST=6 UNORDERED_LIST value
-             * @property {number} NON_EMPTY_DEFAULT=7 NON_EMPTY_DEFAULT value
-             */
-            api.FieldBehavior = (function() {
-                var valuesById = {}, values = Object.create(valuesById);
-                values[valuesById[0] = "FIELD_BEHAVIOR_UNSPECIFIED"] = 0;
-                values[valuesById[1] = "OPTIONAL"] = 1;
-                values[valuesById[2] = "REQUIRED"] = 2;
-                values[valuesById[3] = "OUTPUT_ONLY"] = 3;
-                values[valuesById[4] = "INPUT_ONLY"] = 4;
-                values[valuesById[5] = "IMMUTABLE"] = 5;
-                values[valuesById[6] = "UNORDERED_LIST"] = 6;
-                values[valuesById[7] = "NON_EMPTY_DEFAULT"] = 7;
-                return values;
-            })();
-    
             api.Http = (function() {
     
                 /**
@@ -14221,6 +14486,32 @@
                 };
     
                 return CustomHttpPattern;
+            })();
+    
+            /**
+             * FieldBehavior enum.
+             * @name google.api.FieldBehavior
+             * @enum {number}
+             * @property {number} FIELD_BEHAVIOR_UNSPECIFIED=0 FIELD_BEHAVIOR_UNSPECIFIED value
+             * @property {number} OPTIONAL=1 OPTIONAL value
+             * @property {number} REQUIRED=2 REQUIRED value
+             * @property {number} OUTPUT_ONLY=3 OUTPUT_ONLY value
+             * @property {number} INPUT_ONLY=4 INPUT_ONLY value
+             * @property {number} IMMUTABLE=5 IMMUTABLE value
+             * @property {number} UNORDERED_LIST=6 UNORDERED_LIST value
+             * @property {number} NON_EMPTY_DEFAULT=7 NON_EMPTY_DEFAULT value
+             */
+            api.FieldBehavior = (function() {
+                var valuesById = {}, values = Object.create(valuesById);
+                values[valuesById[0] = "FIELD_BEHAVIOR_UNSPECIFIED"] = 0;
+                values[valuesById[1] = "OPTIONAL"] = 1;
+                values[valuesById[2] = "REQUIRED"] = 2;
+                values[valuesById[3] = "OUTPUT_ONLY"] = 3;
+                values[valuesById[4] = "INPUT_ONLY"] = 4;
+                values[valuesById[5] = "IMMUTABLE"] = 5;
+                values[valuesById[6] = "UNORDERED_LIST"] = 6;
+                values[valuesById[7] = "NON_EMPTY_DEFAULT"] = 7;
+                return values;
             })();
     
             api.ResourceDescriptor = (function() {

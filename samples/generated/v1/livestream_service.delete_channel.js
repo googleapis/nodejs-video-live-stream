@@ -38,6 +38,13 @@ function main(name) {
    *  not supported `(00000000-0000-0000-0000-000000000000)`.
    */
   // const requestId = 'abc123'
+  /**
+   *  If the `force` field is set to the default value of `false`, you must
+   *  delete all of a channel's events before you can delete the channel itself.
+   *  If the field is set to `true`, requests to delete a channel also delete
+   *  associated channel events.
+   */
+  // const force = true
 
   // Imports the Livestream library
   const {LivestreamServiceClient} = require('@google-cloud/livestream').v1;
