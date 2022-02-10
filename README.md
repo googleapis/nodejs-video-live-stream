@@ -2,11 +2,11 @@
 [//]: # "To regenerate it, use `python -m synthtool`."
 <img src="https://avatars2.githubusercontent.com/u/2810941?v=3&s=96" alt="Google Cloud Platform logo" title="Google Cloud Platform" align="right" height="96" width="96"/>
 
-# [Live Stream API: Node.js Client](https://github.com/googleapis/nodejs-video-livestream)
+# [Live Stream API: Node.js Client](https://github.com/googleapis/nodejs-video-live-stream)
 
 [![release level](https://img.shields.io/badge/release%20level-beta-yellow.svg?style=flat)](https://cloud.google.com/terms/launch-stages)
 [![npm version](https://img.shields.io/npm/v/@google-cloud/livestream.svg)](https://www.npmjs.org/package/@google-cloud/livestream)
-[![codecov](https://img.shields.io/codecov/c/github/googleapis/nodejs-video-livestream/master.svg?style=flat)](https://codecov.io/gh/googleapis/nodejs-video-livestream)
+[![codecov](https://img.shields.io/codecov/c/github/googleapis/nodejs-video-live-stream/master.svg?style=flat)](https://codecov.io/gh/googleapis/nodejs-video-live-stream)
 
 
 
@@ -15,11 +15,11 @@ livestream client for Node.js
 
 
 A comprehensive list of changes in each version may be found in
-[the CHANGELOG](https://github.com/googleapis/nodejs-video-livestream/blob/master/CHANGELOG.md).
+[the CHANGELOG](https://github.com/googleapis/nodejs-video-live-stream/blob/master/CHANGELOG.md).
 
 * [Live Stream API Node.js Client API Reference][client-docs]
 * [Live Stream API Documentation][product-docs]
-* [github.com/googleapis/nodejs-video-livestream](https://github.com/googleapis/nodejs-video-livestream)
+* [github.com/googleapis/nodejs-video-live-stream](https://github.com/googleapis/nodejs-video-live-stream)
 
 Read more about the client libraries for Cloud APIs, including the older
 Google APIs Client Libraries, in [Client Libraries Explained][explained].
@@ -102,7 +102,7 @@ More Information: [Google Cloud Platform Launch Stages][launch_stages]
 
 ## Contributing
 
-Contributions welcome! See the [Contributing Guide](https://github.com/googleapis/nodejs-video-livestream/blob/master/CONTRIBUTING.md).
+Contributions welcome! See the [Contributing Guide](https://github.com/googleapis/nodejs-video-live-stream/blob/master/CONTRIBUTING.md).
 
 Please note that this `README.md`, the `samples/README.md`,
 and a variety of configuration files in this repository (including `.nycrc` and `tsconfig.json`)
@@ -114,7 +114,7 @@ to its templates in
 
 Apache Version 2.0
 
-See [LICENSE](https://github.com/googleapis/nodejs-video-livestream/blob/master/LICENSE)
+See [LICENSE](https://github.com/googleapis/nodejs-video-live-stream/blob/master/LICENSE)
 
 [client-docs]: https://cloud.google.com/nodejs/docs/reference/livestream/latest
 [product-docs]: https://cloud.google.com/livestream/
