@@ -31,8 +31,8 @@ Google APIs Client Libraries, in [Client Libraries Explained][explained].
 * [Quickstart](#quickstart)
   * [Before you begin](#before-you-begin)
   * [Installing the client library](#installing-the-client-library)
-
-
+  * [Using the client library](#using-the-client-library)
+* [Samples](#samples)
 * [Versioning](#versioning)
 * [Contributing](#contributing)
 * [License](#license)
@@ -54,6 +54,71 @@ npm install @google-cloud/livestream
 ```
 
 
+### Using the client library
+
+```javascript
+/**
+ * TODO(developer): Uncomment these variables before running the sample.
+ */
+/**
+ *  Required. The parent location for the resource, in the form of:
+ *  `projects/{project}/locations/{location}`.
+ */
+// const parent = 'abc123'
+/**
+ *  The maximum number of items to return. If unspecified, server
+ *  will pick an appropriate default. Server may return fewer items than
+ *  requested. A caller should only rely on response's
+ *  next_page_token google.cloud.video.livestream.v1.ListChannelsResponse.next_page_token  to
+ *  determine if there are more items left to be queried.
+ */
+// const pageSize = 1234
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+// const pageToken = 'abc123'
+/**
+ *  The filter to apply to list results.
+ */
+// const filter = 'abc123'
+/**
+ *  Specifies the ordering of results following syntax at
+ *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ */
+// const orderBy = 'abc123'
+
+// Imports the Livestream library
+const {LivestreamServiceClient} = require('@google-cloud/livestream').v1;
+
+// Instantiates a client
+const livestreamClient = new LivestreamServiceClient();
+
+async function callListChannels() {
+  // Construct request
+  const request = {
+    parent,
+  };
+
+  // Run request
+  const iterable = await livestreamClient.listChannelsAsync(request);
+  for await (const response of iterable) {
+    console.log(response);
+  }
+}
+
+callListChannels();
+
+```
+
+
+
+## Samples
+
+Samples are in the [`samples/`](https://github.com/googleapis/nodejs-video-live-stream/tree/main/samples) directory. Each sample's `README.md` has instructions for running its sample.
+
+| Sample                      | Source Code                       | Try it |
+| --------------------------- | --------------------------------- | ------ |
+| Quickstart | [source code](https://github.com/googleapis/nodejs-video-live-stream/blob/main/samples/quickstart.js) | [![Open in Cloud Shell][shell_img]](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/googleapis/nodejs-video-live-stream&page=editor&open_in_editor=samples/quickstart.js,samples/README.md) |
 
 
 
