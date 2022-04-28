@@ -24,30 +24,21 @@ const {describe, it, before, after} = require('mocha');
 const uniqueID = uuidv4().split('-')[0];
 const bucketName = `nodejs-samples-livestream-test-${uniqueID}`;
 
-const projectNumber = process.env.GOOGLE_CLOUD_PROJECT_NUMBER;
 const projectId = process.env.GCLOUD_PROJECT;
 const location = 'us-central1';
 const inputId = `nodejs-test-livestream-input-${uniqueID}`;
 const inputNameProjectId = `projects/${projectId}/locations/${location}/inputs/${inputId}`;
-const inputNameProjectNumber = `projects/${projectNumber}/locations/${location}/inputs/${inputId}`;
 const channelId = `nodejs-test-livestream-channel-${uniqueID}`;
 const channelIdProjectId = `projects/${projectId}/locations/${location}/channels/${channelId}`;
-const channelIdProjectNumber = `projects/${projectNumber}/locations/${location}/channels/${channelId}`;
 const eventId = `nodejs-test-livestream-event-${uniqueID}`;
 const eventIdProjectId = `projects/${projectId}/locations/${location}/channels/${channelId}/events/${eventId}`;
-const eventIdProjectNumber = `projects/${projectNumber}/locations/${location}/channels/${channelId}/events/${eventId}`;
 const outputUri = `gs://${bucketName}/test-output-channel/`;
 const cwd = path.join(__dirname, '..');
 
 before(async () => {
-  assert(
-    process.env.GOOGLE_CLOUD_PROJECT_NUMBER,
-    'Must set GOOGLE_CLOUD_PROJECT_NUMBER environment variable!'
-  );
-
   // Stop the channel if it already exists
   try {
-    execSync(`node stopChannel.js ${projectNumber} ${location} ${channelId}`, {
+    execSync(`node stopChannel.js ${projectId} ${location} ${channelId}`, {
       cwd,
     });
   } catch (err) {
@@ -56,17 +47,16 @@ before(async () => {
 
   // Delete the channel if it already exists
   try {
-    execSync(
-      `node deleteChannel.js ${projectNumber} ${location} ${channelId}`,
-      {cwd}
-    );
+    execSync(`node deleteChannel.js ${projectId} ${location} ${channelId}`, {
+      cwd,
+    });
   } catch (err) {
     // Ignore not found error
   }
 
   // Delete the default input if it already exists
   try {
-    execSync(`node deleteInput.js ${projectNumber} ${location} ${inputId}`, {
+    execSync(`node deleteInput.js ${projectId} ${location} ${inputId}`, {
       cwd,
     });
   } catch (err) {
@@ -115,22 +105,22 @@ after(async () => {
 describe('Input functions', () => {
   it('should create an input', () => {
     const output = execSync(
-      `node createInput.js ${projectNumber} ${location} ${inputId}`,
+      `node createInput.js ${projectId} ${location} ${inputId}`,
       {cwd}
     );
     assert.ok(output.includes(inputNameProjectId));
   });
 
   it('should show a list of inputs', () => {
-    const output = execSync(`node listInputs.js ${projectNumber} ${location}`, {
+    const output = execSync(`node listInputs.js ${projectId} ${location}`, {
       cwd,
     });
-    assert.ok(output.includes(inputNameProjectNumber));
+    assert.ok(output.includes(inputNameProjectId));
   });
 
   it('should update an input', () => {
     const output = execSync(
-      `node updateInput.js ${projectNumber} ${location} ${inputId}`,
+      `node updateInput.js ${projectId} ${location} ${inputId}`,
       {cwd}
     );
     assert.ok(output.includes(inputNameProjectId));
@@ -138,15 +128,15 @@ describe('Input functions', () => {
 
   it('should get an input', () => {
     const output = execSync(
-      `node getInput.js ${projectNumber} ${location} ${inputId}`,
+      `node getInput.js ${projectId} ${location} ${inputId}`,
       {cwd}
     );
-    assert.ok(output.includes(inputNameProjectNumber));
+    assert.ok(output.includes(inputNameProjectId));
   });
 
   it('should delete an input', () => {
     const output = execSync(
-      `node deleteInput.js ${projectNumber} ${location} ${inputId}`,
+      `node deleteInput.js ${projectId} ${location} ${inputId}`,
       {cwd}
     );
     assert.ok(output.includes('Deleted input'));
@@ -156,7 +146,7 @@ describe('Input functions', () => {
 describe('Channel functions', () => {
   before(() => {
     const output = execSync(
-      `node createInput.js ${projectNumber} ${location} ${inputId}`,
+      `node createInput.js ${projectId} ${location} ${inputId}`,
       {cwd}
     );
     assert.ok(output.includes(inputNameProjectId));
@@ -164,7 +154,7 @@ describe('Channel functions', () => {
 
   after(() => {
     const output = execSync(
-      `node deleteInput.js ${projectNumber} ${location} ${inputId}`,
+      `node deleteInput.js ${projectId} ${location} ${inputId}`,
       {cwd}
     );
     assert.ok(output.includes('Deleted input'));
@@ -172,23 +162,22 @@ describe('Channel functions', () => {
 
   it('should create a channel', () => {
     const output = execSync(
-      `node createChannel.js ${projectNumber} ${location} ${channelId} ${inputId} ${outputUri}`,
+      `node createChannel.js ${projectId} ${location} ${channelId} ${inputId} ${outputUri}`,
       {cwd}
     );
     assert.ok(output.includes(channelIdProjectId));
   });
 
   it('should show a list of channels', () => {
-    const output = execSync(
-      `node listChannels.js ${projectNumber} ${location}`,
-      {cwd}
-    );
-    assert.ok(output.includes(channelIdProjectNumber));
+    const output = execSync(`node listChannels.js ${projectId} ${location}`, {
+      cwd,
+    });
+    assert.ok(output.includes(channelIdProjectId));
   });
 
   it('should update an channel', () => {
     const output = execSync(
-      `node updateChannel.js ${projectNumber} ${location} ${channelId} ${inputId}`,
+      `node updateChannel.js ${projectId} ${location} ${channelId} ${inputId}`,
       {cwd}
     );
     assert.ok(output.includes(channelIdProjectId));
@@ -196,15 +185,15 @@ describe('Channel functions', () => {
 
   it('should get an channel', () => {
     const output = execSync(
-      `node getChannel.js ${projectNumber} ${location} ${channelId}`,
+      `node getChannel.js ${projectId} ${location} ${channelId}`,
       {cwd}
     );
-    assert.ok(output.includes(channelIdProjectNumber));
+    assert.ok(output.includes(channelIdProjectId));
   });
 
   it('should start a channel', () => {
     const output = execSync(
-      `node startChannel.js ${projectNumber} ${location} ${channelId}`,
+      `node startChannel.js ${projectId} ${location} ${channelId}`,
       {cwd}
     );
     assert.ok(output.includes('Started channel'));
@@ -212,7 +201,7 @@ describe('Channel functions', () => {
 
   it('should stop a channel', () => {
     const output = execSync(
-      `node stopChannel.js ${projectNumber} ${location} ${channelId}`,
+      `node stopChannel.js ${projectId} ${location} ${channelId}`,
       {cwd}
     );
     assert.ok(output.includes('Stopped channel'));
@@ -220,7 +209,7 @@ describe('Channel functions', () => {
 
   it('should delete a channel', () => {
     const output = execSync(
-      `node deleteChannel.js ${projectNumber} ${location} ${channelId}`,
+      `node deleteChannel.js ${projectId} ${location} ${channelId}`,
       {cwd}
     );
     assert.ok(output.includes('Deleted channel'));
@@ -230,19 +219,19 @@ describe('Channel functions', () => {
 describe('Channel event functions', () => {
   before(() => {
     let output = execSync(
-      `node createInput.js ${projectNumber} ${location} ${inputId}`,
+      `node createInput.js ${projectId} ${location} ${inputId}`,
       {cwd}
     );
     assert.ok(output.includes(inputNameProjectId));
 
     output = execSync(
-      `node createChannel.js ${projectNumber} ${location} ${channelId} ${inputId} ${outputUri}`,
+      `node createChannel.js ${projectId} ${location} ${channelId} ${inputId} ${outputUri}`,
       {cwd}
     );
     assert.ok(output.includes(channelIdProjectId));
 
     output = execSync(
-      `node startChannel.js ${projectNumber} ${location} ${channelId}`,
+      `node startChannel.js ${projectId} ${location} ${channelId}`,
       {cwd}
     );
     assert.ok(output.includes('Started channel'));
@@ -250,19 +239,19 @@ describe('Channel event functions', () => {
 
   after(() => {
     let output = execSync(
-      `node stopChannel.js ${projectNumber} ${location} ${channelId}`,
+      `node stopChannel.js ${projectId} ${location} ${channelId}`,
       {cwd}
     );
     assert.ok(output.includes('Stopped channel'));
 
     output = execSync(
-      `node deleteChannel.js ${projectNumber} ${location} ${channelId}`,
+      `node deleteChannel.js ${projectId} ${location} ${channelId}`,
       {cwd}
     );
     assert.ok(output.includes('Deleted channel'));
 
     output = execSync(
-      `node deleteInput.js ${projectNumber} ${location} ${inputId}`,
+      `node deleteInput.js ${projectId} ${location} ${inputId}`,
       {cwd}
     );
     assert.ok(output.includes('Deleted input'));
@@ -270,7 +259,7 @@ describe('Channel event functions', () => {
 
   it('should create a channel event', () => {
     const output = execSync(
-      `node createChannelEvent.js ${projectNumber} ${location} ${channelId} ${eventId}`,
+      `node createChannelEvent.js ${projectId} ${location} ${channelId} ${eventId}`,
       {cwd}
     );
     assert.ok(output.includes(eventIdProjectId));
@@ -278,23 +267,23 @@ describe('Channel event functions', () => {
 
   it('should show a list of channel events', () => {
     const output = execSync(
-      `node listChannelEvents.js ${projectNumber} ${location} ${channelId}`,
+      `node listChannelEvents.js ${projectId} ${location} ${channelId}`,
       {cwd}
     );
-    assert.ok(output.includes(eventIdProjectNumber));
+    assert.ok(output.includes(eventIdProjectId));
   });
 
   it('should get a channel event', () => {
     const output = execSync(
-      `node getChannelEvent.js ${projectNumber} ${location} ${channelId} ${eventId}`,
+      `node getChannelEvent.js ${projectId} ${location} ${channelId} ${eventId}`,
       {cwd}
     );
-    assert.ok(output.includes(eventIdProjectNumber));
+    assert.ok(output.includes(eventIdProjectId));
   });
 
   it('should delete a channel event', () => {
     const output = execSync(
-      `node deleteChannelEvent.js ${projectNumber} ${location} ${channelId} ${eventId}`,
+      `node deleteChannelEvent.js ${projectId} ${location} ${channelId} ${eventId}`,
       {cwd}
     );
     assert.ok(output.includes('Deleted channel event'));

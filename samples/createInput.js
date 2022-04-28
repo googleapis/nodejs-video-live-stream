@@ -15,12 +15,12 @@
 
 'use strict';
 
-function main(projectNumber, location, inputId) {
+function main(projectId, location, inputId) {
   // [START livestream_create_input]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
-  // projectNumber = '012345678';
+  // projectId = 'my-project-id';
   // location = 'us-central1';
   // inputId = 'my-input';
 
@@ -33,7 +33,7 @@ function main(projectNumber, location, inputId) {
   async function createInput() {
     // Construct request
     const request = {
-      parent: livestreamServiceClient.locationPath(projectNumber, location),
+      parent: livestreamServiceClient.locationPath(projectId, location),
       inputId: inputId,
       input: {
         type: 'RTMP_PUSH',
@@ -51,7 +51,7 @@ function main(projectNumber, location, inputId) {
   // [END livestream_create_input]
 }
 
-// node createInput.js <projectNumber> <location> <inputId>
+// node createInput.js <projectId> <location> <inputId>
 process.on('unhandledRejection', err => {
   console.error(err.message);
   process.exitCode = 1;

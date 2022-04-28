@@ -15,12 +15,12 @@
 
 'use strict';
 
-function main(projectNumber, location, channelId, inputId) {
+function main(projectId, location, channelId, inputId) {
   // [START livestream_update_channel]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
-  // projectNumber = '012345678';
+  // projectId = 'my-project-id';
   // location = 'us-central1';
   // channelId = 'my-channel';
   // inputId = 'my-input';
@@ -36,7 +36,7 @@ function main(projectNumber, location, channelId, inputId) {
     const request = {
       channel: {
         name: livestreamServiceClient.channelPath(
-          projectNumber,
+          projectId,
           location,
           channelId
         ),
@@ -44,7 +44,7 @@ function main(projectNumber, location, channelId, inputId) {
           {
             key: 'updated-input',
             input: livestreamServiceClient.inputPath(
-              projectNumber,
+              projectId,
               location,
               inputId
             ),
@@ -67,7 +67,7 @@ function main(projectNumber, location, channelId, inputId) {
   // [END livestream_update_channel]
 }
 
-// node updateChannel.js <projectNumber> <location> <channelId> <inputId>
+// node updateChannel.js <projectId> <location> <channelId> <inputId>
 process.on('unhandledRejection', err => {
   console.error(err.message);
   process.exitCode = 1;

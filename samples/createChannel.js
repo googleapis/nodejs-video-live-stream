@@ -15,12 +15,12 @@
 
 'use strict';
 
-function main(projectNumber, location, channelId, inputId, outputUri) {
+function main(projectId, location, channelId, inputId, outputUri) {
   // [START livestream_create_channel]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
-  // projectNumber = '012345678';
+  // projectId = 'my-project-id';
   // location = 'us-central1';
   // channelId = 'my-channel';
   // inputId = 'my-input';
@@ -35,14 +35,14 @@ function main(projectNumber, location, channelId, inputId, outputUri) {
   async function createChannel() {
     // Construct request
     const request = {
-      parent: livestreamServiceClient.locationPath(projectNumber, location),
+      parent: livestreamServiceClient.locationPath(projectId, location),
       channelId: channelId,
       channel: {
         inputAttachments: [
           {
             key: 'my-input',
             input: livestreamServiceClient.inputPath(
-              projectNumber,
+              projectId,
               location,
               inputId
             ),
@@ -111,7 +111,7 @@ function main(projectNumber, location, channelId, inputId, outputUri) {
   // [END livestream_create_channel]
 }
 
-// node createChannel.js <projectNumber> <location> <channelId> <inputId> <outputUri>
+// node createChannel.js <projectId> <location> <channelId> <inputId> <outputUri>
 process.on('unhandledRejection', err => {
   console.error(err.message);
   process.exitCode = 1;

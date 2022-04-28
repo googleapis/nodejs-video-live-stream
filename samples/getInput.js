@@ -15,12 +15,12 @@
 
 'use strict';
 
-function main(projectNumber, location, inputId) {
+function main(projectId, location, inputId) {
   // [START livestream_get_input]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
-  // projectNumber = '012345678';
+  // projectId = 'my-project-id';
   // location = 'us-central1';
   // inputId = 'my-input';
 
@@ -33,7 +33,7 @@ function main(projectNumber, location, inputId) {
   async function getInput() {
     // Construct request
     const request = {
-      name: livestreamServiceClient.inputPath(projectNumber, location, inputId),
+      name: livestreamServiceClient.inputPath(projectId, location, inputId),
     };
     const [input] = await livestreamServiceClient.getInput(request);
     console.log(`Input: ${input.name}`);
@@ -43,7 +43,7 @@ function main(projectNumber, location, inputId) {
   // [END livestream_get_input]
 }
 
-// node getInput.js <projectNumber> <location> <inputId>
+// node getInput.js <projectId> <location> <inputId>
 process.on('unhandledRejection', err => {
   console.error(err.message);
   process.exitCode = 1;

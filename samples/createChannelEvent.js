@@ -15,12 +15,12 @@
 
 'use strict';
 
-function main(projectNumber, location, channelId, eventId) {
+function main(projectId, location, channelId, eventId) {
   // [START livestream_create_channel_event]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
-  // projectNumber = '012345678';
+  // projectId = 'my-project-id';
   // location = 'us-central1';
   // channelId = 'my-channel';
   // eventId = 'my-channel-event';
@@ -35,7 +35,7 @@ function main(projectNumber, location, channelId, eventId) {
     // Construct request
     const request = {
       parent: livestreamServiceClient.channelPath(
-        projectNumber,
+        projectId,
         location,
         channelId
       ),
@@ -59,7 +59,7 @@ function main(projectNumber, location, channelId, eventId) {
   // [END livestream_create_channel_event]
 }
 
-// node createChannelEvent.js <projectNumber> <location> <channelId> <eventId>
+// node createChannelEvent.js <projectId> <location> <channelId> <eventId>
 process.on('unhandledRejection', err => {
   console.error(err.message);
   process.exitCode = 1;

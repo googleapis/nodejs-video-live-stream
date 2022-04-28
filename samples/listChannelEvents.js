@@ -15,12 +15,12 @@
 
 'use strict';
 
-function main(projectNumber, location, channelId) {
+function main(projectId, location, channelId) {
   // [START livestream_list_channel_events]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
-  // projectNumber = '012345678';
+  // projectId = 'my-project-id';
   // location = 'us-central1';
   // channelId = 'my-channel';
 
@@ -33,7 +33,7 @@ function main(projectNumber, location, channelId) {
   async function listChannelEvents() {
     const [events] = await livestreamServiceClient.listEvents({
       parent: livestreamServiceClient.channelPath(
-        projectNumber,
+        projectId,
         location,
         channelId
       ),
@@ -48,7 +48,7 @@ function main(projectNumber, location, channelId) {
   // [END livestream_list_channel_events]
 }
 
-// node listChannelEvents.js <projectNumber> <location> <channelId>
+// node listChannelEvents.js <projectId> <location> <channelId>
 process.on('unhandledRejection', err => {
   console.error(err.message);
   process.exitCode = 1;

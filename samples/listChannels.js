@@ -15,12 +15,12 @@
 
 'use strict';
 
-function main(projectNumber, location) {
+function main(projectId, location) {
   // [START livestream_list_channels]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
-  // projectNumber = '012345678';
+  // projectId = 'my-project-id';
   // location = 'us-central1';
 
   // Imports the Livestream library
@@ -31,7 +31,7 @@ function main(projectNumber, location) {
 
   async function listChannels() {
     const [channels] = await livestreamServiceClient.listChannels({
-      parent: livestreamServiceClient.locationPath(projectNumber, location),
+      parent: livestreamServiceClient.locationPath(projectId, location),
     });
     console.info('Channels:');
     for (const channel of channels) {
@@ -43,7 +43,7 @@ function main(projectNumber, location) {
   // [END livestream_list_channels]
 }
 
-// node listChannels.js <projectNumber> <location>
+// node listChannels.js <projectId> <location>
 process.on('unhandledRejection', err => {
   console.error(err.message);
   process.exitCode = 1;
