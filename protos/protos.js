@@ -8033,7 +8033,7 @@
                             };
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#createChannel}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|createChannel}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef CreateChannelCallback
                              * @type {function}
@@ -8066,7 +8066,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#listChannels}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|listChannels}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef ListChannelsCallback
                              * @type {function}
@@ -8099,7 +8099,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#getChannel}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|getChannel}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef GetChannelCallback
                              * @type {function}
@@ -8132,7 +8132,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#deleteChannel}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|deleteChannel}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef DeleteChannelCallback
                              * @type {function}
@@ -8165,7 +8165,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#updateChannel}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|updateChannel}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef UpdateChannelCallback
                              * @type {function}
@@ -8198,7 +8198,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#startChannel}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|startChannel}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef StartChannelCallback
                              * @type {function}
@@ -8231,7 +8231,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#stopChannel}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|stopChannel}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef StopChannelCallback
                              * @type {function}
@@ -8264,7 +8264,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#createInput}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|createInput}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef CreateInputCallback
                              * @type {function}
@@ -8297,7 +8297,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#listInputs}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|listInputs}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef ListInputsCallback
                              * @type {function}
@@ -8330,7 +8330,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#getInput}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|getInput}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef GetInputCallback
                              * @type {function}
@@ -8363,7 +8363,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#deleteInput}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|deleteInput}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef DeleteInputCallback
                              * @type {function}
@@ -8396,7 +8396,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#updateInput}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|updateInput}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef UpdateInputCallback
                              * @type {function}
@@ -8429,7 +8429,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#createEvent}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|createEvent}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef CreateEventCallback
                              * @type {function}
@@ -8462,7 +8462,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#listEvents}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|listEvents}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef ListEventsCallback
                              * @type {function}
@@ -8495,7 +8495,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#getEvent}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|getEvent}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef GetEventCallback
                              * @type {function}
@@ -8528,7 +8528,7 @@
                              */
     
                             /**
-                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#deleteEvent}.
+                             * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|deleteEvent}.
                              * @memberof google.cloud.video.livestream.v1.LivestreamService
                              * @typedef DeleteEventCallback
                              * @type {function}
@@ -25214,7 +25214,7 @@
                 };
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#listOperations}.
+                 * Callback as used by {@link google.longrunning.Operations|listOperations}.
                  * @memberof google.longrunning.Operations
                  * @typedef ListOperationsCallback
                  * @type {function}
@@ -25247,7 +25247,7 @@
                  */
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#getOperation}.
+                 * Callback as used by {@link google.longrunning.Operations|getOperation}.
                  * @memberof google.longrunning.Operations
                  * @typedef GetOperationCallback
                  * @type {function}
@@ -25280,7 +25280,7 @@
                  */
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#deleteOperation}.
+                 * Callback as used by {@link google.longrunning.Operations|deleteOperation}.
                  * @memberof google.longrunning.Operations
                  * @typedef DeleteOperationCallback
                  * @type {function}
@@ -25313,7 +25313,7 @@
                  */
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#cancelOperation}.
+                 * Callback as used by {@link google.longrunning.Operations|cancelOperation}.
                  * @memberof google.longrunning.Operations
                  * @typedef CancelOperationCallback
                  * @type {function}
@@ -25346,7 +25346,7 @@
                  */
     
                 /**
-                 * Callback as used by {@link google.longrunning.Operations#waitOperation}.
+                 * Callback as used by {@link google.longrunning.Operations|waitOperation}.
                  * @memberof google.longrunning.Operations
                  * @typedef WaitOperationCallback
                  * @type {function}
