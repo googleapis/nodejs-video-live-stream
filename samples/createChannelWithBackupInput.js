@@ -15,7 +15,14 @@
 
 'use strict';
 
-function main(projectId, location, channelId, primaryInputId, backupInputId, outputUri) {
+function main(
+  projectId,
+  location,
+  channelId,
+  primaryInputId,
+  backupInputId,
+  outputUri
+) {
   // [START livestream_create_channel_with_backup_input]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
@@ -48,7 +55,7 @@ function main(projectId, location, channelId, primaryInputId, backupInputId, out
               primaryInputId
             ),
             automaticFailover: {
-              inputKeys: ['my-backup-input']
+              inputKeys: ['my-backup-input'],
             },
           },
           {
