@@ -3328,112 +3328,112 @@ export namespace google {
                     namespace LivestreamService {
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#createChannel}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|createChannel}.
                          * @param error Error, if any
                          * @param [response] Operation
                          */
                         type CreateChannelCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#listChannels}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|listChannels}.
                          * @param error Error, if any
                          * @param [response] ListChannelsResponse
                          */
                         type ListChannelsCallback = (error: (Error|null), response?: google.cloud.video.livestream.v1.ListChannelsResponse) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#getChannel}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|getChannel}.
                          * @param error Error, if any
                          * @param [response] Channel
                          */
                         type GetChannelCallback = (error: (Error|null), response?: google.cloud.video.livestream.v1.Channel) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#deleteChannel}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|deleteChannel}.
                          * @param error Error, if any
                          * @param [response] Operation
                          */
                         type DeleteChannelCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#updateChannel}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|updateChannel}.
                          * @param error Error, if any
                          * @param [response] Operation
                          */
                         type UpdateChannelCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#startChannel}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|startChannel}.
                          * @param error Error, if any
                          * @param [response] Operation
                          */
                         type StartChannelCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#stopChannel}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|stopChannel}.
                          * @param error Error, if any
                          * @param [response] Operation
                          */
                         type StopChannelCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#createInput}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|createInput}.
                          * @param error Error, if any
                          * @param [response] Operation
                          */
                         type CreateInputCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#listInputs}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|listInputs}.
                          * @param error Error, if any
                          * @param [response] ListInputsResponse
                          */
                         type ListInputsCallback = (error: (Error|null), response?: google.cloud.video.livestream.v1.ListInputsResponse) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#getInput}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|getInput}.
                          * @param error Error, if any
                          * @param [response] Input
                          */
                         type GetInputCallback = (error: (Error|null), response?: google.cloud.video.livestream.v1.Input) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#deleteInput}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|deleteInput}.
                          * @param error Error, if any
                          * @param [response] Operation
                          */
                         type DeleteInputCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#updateInput}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|updateInput}.
                          * @param error Error, if any
                          * @param [response] Operation
                          */
                         type UpdateInputCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#createEvent}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|createEvent}.
                          * @param error Error, if any
                          * @param [response] Event
                          */
                         type CreateEventCallback = (error: (Error|null), response?: google.cloud.video.livestream.v1.Event) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#listEvents}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|listEvents}.
                          * @param error Error, if any
                          * @param [response] ListEventsResponse
                          */
                         type ListEventsCallback = (error: (Error|null), response?: google.cloud.video.livestream.v1.ListEventsResponse) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#getEvent}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|getEvent}.
                          * @param error Error, if any
                          * @param [response] Event
                          */
                         type GetEventCallback = (error: (Error|null), response?: google.cloud.video.livestream.v1.Event) => void;
 
                         /**
-                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService#deleteEvent}.
+                         * Callback as used by {@link google.cloud.video.livestream.v1.LivestreamService|deleteEvent}.
                          * @param error Error, if any
                          * @param [response] Empty
                          */
@@ -8027,6 +8027,9 @@ export namespace google {
             /** FieldOptions lazy */
             lazy?: (boolean|null);
 
+            /** FieldOptions unverifiedLazy */
+            unverifiedLazy?: (boolean|null);
+
             /** FieldOptions deprecated */
             deprecated?: (boolean|null);
 
@@ -8063,6 +8066,9 @@ export namespace google {
 
             /** FieldOptions lazy. */
             public lazy: boolean;
+
+            /** FieldOptions unverifiedLazy. */
+            public unverifiedLazy: boolean;
 
             /** FieldOptions deprecated. */
             public deprecated: boolean;
@@ -9971,35 +9977,35 @@ export namespace google {
         namespace Operations {
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#listOperations}.
+             * Callback as used by {@link google.longrunning.Operations|listOperations}.
              * @param error Error, if any
              * @param [response] ListOperationsResponse
              */
             type ListOperationsCallback = (error: (Error|null), response?: google.longrunning.ListOperationsResponse) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#getOperation}.
+             * Callback as used by {@link google.longrunning.Operations|getOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
             type GetOperationCallback = (error: (Error|null), response?: google.longrunning.Operation) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#deleteOperation}.
+             * Callback as used by {@link google.longrunning.Operations|deleteOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type DeleteOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#cancelOperation}.
+             * Callback as used by {@link google.longrunning.Operations|cancelOperation}.
              * @param error Error, if any
              * @param [response] Empty
              */
             type CancelOperationCallback = (error: (Error|null), response?: google.protobuf.Empty) => void;
 
             /**
-             * Callback as used by {@link google.longrunning.Operations#waitOperation}.
+             * Callback as used by {@link google.longrunning.Operations|waitOperation}.
              * @param error Error, if any
              * @param [response] Operation
              */
